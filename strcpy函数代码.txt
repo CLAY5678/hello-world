@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+ 
+#include <stdio.h>
+#include <assert.h>
+int my_strlen(const char* arr)
+{
+	assert(arr); // 断言 arr不是空指针NULL ，否则报错
+	int count = 0;
+
+	while (*arr != '\0')
+	{
+		count++;
+		arr++;
+	}
+	return count;
+}
+
+
+char* my_strcpy(char* dest,  const char* src)
+{
+	assert(src != NULL); //断言 增加代码健壮性和鲁棒性
+	assert(dest!=NULL);
+	char* ret = dest; // 复制前，记录目的地地址（接下来会被更改），用于打印
+	while (*dest++ = *src++)//后置++，先使用（复制内容），再++
+	{
+		; //相关操作已在括号中给出，所以这里书写空语句
+	}
+	return ret;
+}
+
+int main()
+{
+	char arr[] = "abcdef";
+	int ret = my_strlen(arr);
+	printf("%d\n", ret);
+	
+    char arr1[] = "abcdef";
+	char arr2[100] = "a";
+	char* ret= my_strcpy(arr2,arr1); // arr1是源头，arr2是目的地，把arr1的内容放到arr2里面
+	printf("%s\n", ret);
+	return 0;
+}
+
